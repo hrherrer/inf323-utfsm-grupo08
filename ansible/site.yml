@@ -1,0 +1,11 @@
+---
+- name: Install Nginx, PHP-FPM. Configure the Serverblock and TLS
+  hosts: servers
+  become: true
+
+  roles:
+    - nginx
+    - php-fpm
+    - tls
+    - serverblock
+  

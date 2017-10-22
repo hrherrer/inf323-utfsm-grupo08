@@ -1,0 +1,13 @@
+---
+- name: Create TLS directory
+  file: path={{ nginx_tls_directory }} state=directory
+
+- name: Copy TLS files
+  copy: src=tls/{{ item }} dest={{ nginx_tls_directory }}/
+  with_items:
+    - README
+    - cert.pem
+    - chain.pem
+    - fullchain.pem
+    - privkey.pem
+

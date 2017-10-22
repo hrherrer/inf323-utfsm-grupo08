@@ -1,0 +1,11 @@
+---
+- name: Create root directory
+  file: path={{ nginx_root_directory }} state=directory
+
+- name: Create index file
+  copy: src=index.php dest={{ nginx_root_directory }}/index.php
+
+- name: Copy Nginx configuration file
+  template: src=default.conf dest=/etc/nginx/conf.d/default.conf
+
+  notify: restart nginx

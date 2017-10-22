@@ -1,0 +1,14 @@
+---
+ansible_ssh_user: root
+
+# PHP-FPM configuration vars
+fpm_user: nginx
+fpm_group: nginx
+
+fpm_listen_ip: 127.0.0.1
+fpm_listen_port: 9000
+
+# Nginx configuration
+nginx_server_name: grupo08.mosorio.me
+nginx_root_directory: /srv/www/opencart
+nginx_tls_directory: /etc/nginx/conf.d/tls
