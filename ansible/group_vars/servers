@@ -12,3 +12,6 @@ fpm_listen_port: 9000
 nginx_server_name: grupo08.mosorio.me
 nginx_root_directory: /srv/www/opencart
 nginx_tls_directory: /etc/nginx/conf.d/tls
+nginx_dns_resolver: 204.87.169.22
+nginx_server_tokens: "off"
+nginx_app_name: opencart

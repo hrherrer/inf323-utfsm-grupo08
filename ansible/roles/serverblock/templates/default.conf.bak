@@ -1,7 +1,6 @@
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    server_name {{ nginx_server_name }};
 
     # Redirect all HTTP requests to HTTPS with a 301 Moved Permanently response.
     return 301 https://$host$request_uri;
@@ -34,22 +33,17 @@ server {
     ## verify chain of trust of OCSP response using Root CA and Intermediate certs
     ssl_trusted_certificate {{ nginx_tls_directory }}/chain.pem;
 
-    resolver {{ nginx_dns_resolver }};
+    # resolver <IP DNS resolver>;
 
-    server_name  {{ nginx_server_name }};
+    server_name  grupo08.mosorio.me;
     
     root {{ nginx_root_directory }};
     index index.php index.html index.htm;
-
-    server_tokens {{ nginx_server_tokens }};
 
     location ~ \.php$ {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
         fastcgi_pass {{ fpm_listen_ip }}:{{ fpm_listen_port }};
     }
-
-    access_log /var/log/nginx/{{ nginx_app_name }}.access.log;
-    error_log /var/log/nginx/{{ nginx_app_name }}.error.log;
 }
 
