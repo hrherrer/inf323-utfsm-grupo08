@@ -1,0 +1,32 @@
+version: "2"
+services:
+  db:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=django
+      - POSTGRES_USER=django
+      - POSTGRES_DB=django
+    ports:
+      - "5432:5432"
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+
+  django:
+    container_name: django
+    image: hernanherreros/django-inf323-utfsm-grupo08
+    restart: on-failure
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DATABASE_URL=postgres://django:django@db/django
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
