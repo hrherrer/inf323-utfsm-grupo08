@@ -4,7 +4,7 @@ ENV PYTHONUNBUFFERED 1
 
 EXPOSE 8000
 
-COPY . /src
+COPY ./django/grupo08 /src
 
 RUN pip install -r /src/requirements.txt
 
