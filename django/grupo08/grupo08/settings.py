@@ -26,7 +26,7 @@ SECRET_KEY = 'bbzeaaei8=dph@!xo)hw5!$vbxutwxpxqv)eq!w0qv*ft_kkis'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django.grupo08.mosorio.me']
 
 
 # Application definition
