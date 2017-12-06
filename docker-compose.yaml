@@ -21,12 +21,13 @@ services:
 
   django:
     container_name: django
-    image: hernanherreros/django-inf323-utfsm-grupo08
-    restart: on-failure
+    image: hernanherreros/django-inf323-utfsm-grupo08:latest
+    restart: always
     command: bash -c "python manage.py runserver 0.0.0.0:8000"
-    environment:
-      - DATABASE_URL=postgres://django:django@db/django
+#    environment:
+#      - DATABASE_URL=postgres://django:django@db/django
     ports:
       - "8000:8000"
     depends_on:
       - db
+
